@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-	<title></title>
-	<meta charset="utf-8">
+	<title>String invertida</title>
+	<meta charset="utf-8" />
 </head>
 <body>
 <?php
-// header('Content-Type: text/html; charset=utf-8');
 
-echo "<h4>R.: 1</h4>";
+// Variaveis String Normal
 $str = "hoje %s é o dia do php";
-$data = date('d-m-Y');
+$data = date('d/m/Y');
+
+// String Invertida
+echo "<h4>String normal</h4>";
 printf($str, $data);
 
-echo "<h4>R.: 2</h4>";
-$str_inv = strlen($str);
-for($i=$str_inv-1; $i >=0; $i--){
-	printf($str[$i], $data);
+// String Invertida
+echo "<h4>String invertida</h4>";
+
+$tamanho_str = strlen($str);
+$exp = explode(' ', $str);
+
+for ($i=sizeof($exp)-1; $i >= 0; $i--) {
+ 	echo str_replace('%s', $data, $exp[$i].' ');
 }
 
 ?>
